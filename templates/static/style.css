@@ -1,0 +1,163 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f5fff7);
+    color: #1e3527;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, #14532d, #2e8b57);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 17px;
+    opacity: 0.95;
+}
+
+.dashboard {
+    background: white;
+    margin-top: 25px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.dashboard h2 {
+    color: #176b38;
+    margin-bottom: 10px;
+}
+
+.dashboard > p {
+    color: #68776c;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d5e5d8;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #fbfffc;
+}
+
+input:focus, select:focus {
+    border-color: #2e8b57;
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.12);
+}
+
+button {
+    background: #218c4b;
+    color: white;
+    border: none;
+    padding: 16px;
+    margin-top: 20px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #176b38;
+    transform: translateY(-2px);
+}
+
+#result {
+    margin-top: 25px;
+}
+
+.result-card {
+    padding: 25px;
+    border-radius: 15px;
+    background: #f2faf4;
+    border: 1px solid #d6eadb;
+}
+
+.result-card h3 {
+    margin-bottom: 15px;
+}
+
+.result-card ul {
+    margin: 15px 0 0 20px;
+}
+
+.result-card li {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.risk-high {
+    color: #d62828;
+}
+
+.risk-medium {
+    color: #d97706;
+}
+
+.risk-low {
+    color: #15803d;
+}
+
+footer {
+    text-align: center;
+    margin: 30px 0;
+    color: #66756b;
+    line-height: 1.8;
+}
+
+footer small {
+    display: block;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .dashboard {
+        padding: 22px;
+    }
+}
