@@ -1,0 +1,768 @@
+
+/* =====================================
+   FARMSHIELD AI 2.0 - MAIN DESIGN
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --green-dark: #123d2b;
+    --green: #218c55;
+    --green-light: #e9f7ed;
+    --text: #203b2a;
+    --muted: #718078;
+    --white: #ffffff;
+    --border: #e1ebe3;
+    --shadow: 0 12px 35px rgba(20, 70, 42, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f9f5;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    min-height: 85px;
+    padding: 15px 7%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 34px;
+}
+
+.brand h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--green-dark);
+}
+
+.brand h2 span {
+    color: var(--green);
+}
+
+.brand small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.nav-status {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(120deg, #103e29, #237b4c);
+    border-radius: 25px;
+    min-height: 350px;
+    padding: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 620px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 7px 13px;
+    border: 1px solid #ffffff40;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+    background: #ffffff12;
+}
+
+.hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 17px;
+}
+
+.hero h1 span {
+    color: #a8edb9;
+}
+
+.hero p {
+    color: #d6eadc;
+    max-width: 530px;
+    font-size: 15px;
+    margin-bottom: 27px;
+}
+
+.hero-button {
+    display: inline-block;
+    text-decoration: none;
+    background: white;
+    color: var(--green-dark);
+    padding: 13px 23px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #dff7e6;
+    transform: translateY(-3px);
+}
+
+.hero-visual {
+    width: 270px;
+    height: 240px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #ffffff18;
+    border: 1px solid #ffffff30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 105px;
+}
+
+.floating-card {
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    background: white;
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.floating-card span {
+    font-size: 26px;
+}
+
+.floating-card strong,
+.floating-card small {
+    display: block;
+}
+
+.floating-card strong {
+    font-size: 12px;
+}
+
+.floating-card small {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    margin: 48px 0 22px;
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2,
+.analyzer-intro h2,
+.future-section h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 27px;
+    color: var(--green-dark);
+    margin: 5px 0;
+}
+
+.section-heading p,
+.analyzer-intro p,
+.future-section p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* OVERVIEW CARDS */
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.overview-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 23px;
+    border-radius: 17px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.overview-card:hover {
+    transform: translateY(-5px);
+}
+
+.overview-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--green-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    flex-shrink: 0;
+}
+
+.overview-card small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.overview-card h3 {
+    font-size: 17px;
+    color: var(--green-dark);
+    margin: 3px 0;
+}
+
+.overview-card p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ANALYZER SECTION */
+
+.analyzer-section {
+    margin-top: 60px;
+}
+
+.analyzer-intro {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.analyzer-card {
+    max-width: 760px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.card-heading h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    color: var(--green-dark);
+}
+
+.card-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.form-icon {
+    font-size: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid var(--border);
+    background: #fbfdfb;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px #218c5515;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(120deg, #218c55, #176b3d);
+    color: white;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px #218c5530;
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ANALYSIS RESULTS */
+
+#result {
+    margin-top: 25px;
+}
+
+.result-card {
+    padding: 25px;
+    background: #f3faf5;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.result-card h3 {
+    margin: 15px 0;
+    color: var(--green-dark);
+}
+
+.result-card p {
+    color: var(--muted);
+}
+
+.result-card ul {
+    padding-left: 22px;
+}
+
+.result-card li {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.risk-high {
+    color: #dc2626;
+}
+
+.risk-medium {
+    color: #d97706;
+}
+
+.risk-low {
+    color: #15803d;
+}
+
+/* RISK LEVELS */
+
+.risk-section {
+    margin-top: 60px;
+}
+
+.risk-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.risk-card {
+    padding: 25px;
+    background: white;
+    border-radius: 17px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.risk-card:hover {
+    transform: translateY(-4px);
+}
+
+.risk-symbol {
+    font-size: 27px;
+}
+
+.risk-card h3 {
+    font-size: 16px;
+    margin: 12px 0 8px;
+}
+
+.risk-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.risk-card.low {
+    border-top: 4px solid #16a34a;
+}
+
+.risk-card.medium {
+    border-top: 4px solid #eab308;
+}
+
+.risk-card.high {
+    border-top: 4px solid #dc2626;
+}
+
+/* FUTURE FEATURES */
+
+.future-section {
+    margin-top: 60px;
+    padding: 35px;
+    background: #eaf5ed;
+    border-radius: 20px;
+}
+
+.future-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.future-grid div {
+    background: white;
+    padding: 18px 12px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--green-dark);
+}
+
+.future-grid strong {
+    display: block;
+    margin-top: 7px;
+    font-size: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    background: #103e29;
+    color: white;
+    line-height: 1.8;
+}
+
+footer h3 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+footer p {
+    color: #d6eadc;
+}
+
+footer small {
+    display: block;
+    max-width: 650px;
+    margin: 15px auto;
+    color: #b9d2c0;
+    font-size: 11px;
+}
+
+.copyright {
+    font-size: 11px;
+    margin-top: 20px;
+    color: #a8c8b2;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+
+    .hero {
+        padding: 35px;
+    }
+
+    .hero-visual {
+        width: 190px;
+    }
+
+    .hero-circle {
+        width: 155px;
+        height: 155px;
+        font-size: 75px;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .future-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .nav-status {
+        font-size: 10px;
+    }
+
+    .brand h2 {
+        font-size: 18px;
+    }
+
+    .brand small {
+        font-size: 9px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .hero {
+        padding: 30px 23px;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .section-heading h2,
+    .analyzer-intro h2,
+    .future-section h2 {
+        font-size: 23px;
+    }
+
+    .analyzer-card {
+        padding: 23px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .risk-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .future-section {
+        padding: 25px 18px;
+    }
+
+    .future-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* LIVE WEATHER PANEL */
+
+.weather-panel {
+    background: #f0f8f2;
+    border: 1px solid #dcebe0;
+    padding: 24px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.weather-heading {
+    margin-bottom: 18px;
+}
+
+.weather-heading h3 {
+    color: #123d2b;
+    margin: 8px 0;
+    font-size: 20px;
+}
+
+.weather-heading p {
+    color: #718078;
+    font-size: 13px;
+}
+
+.location-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.location-controls input {
+    flex: 1 1 200px;
+    min-width: 0;
+}
+
+.location-controls button {
+    width: auto;
+    margin: 0;
+    padding: 12px 17px;
+    font-size: 13px;
+}
+
+.gps-button {
+    background: #123d2b;
+}
+
+.location-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.location-option {
+    background: white;
+    color: #123d2b;
+    border: 1px solid #dcebe0;
+    text-align: left;
+    padding: 12px;
+    margin: 0;
+}
+
+.weather-card {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 14px;
+    border: 1px solid #dcebe0;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.weather-item {
+    background: #f2f8f3;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.weather-item small {
+    color: #718078;
+    display: block;
+}
+
+.weather-item strong {
+    color: #123d2b;
+    font-size: 20px;
+}
+
+.weather-note {
+    font-size: 11px;
+    color: #718078;
+    margin-top: 12px;
+}
+
+@media(max-width: 600px) {
+    .location-controls {
+        flex-direction: column;
+    }
+
+    .location-controls button {
+        width: 100%;
+    }
+}

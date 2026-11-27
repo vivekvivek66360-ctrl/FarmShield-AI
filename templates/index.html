@@ -1,53 +1,305 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FarmShield AI</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <title>FarmShield AI | Smart Agriculture Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<div class="container">
-    <header>
-        <h1>🌱 FarmShield AI</h1>
-        <p>Climate Risk & Farmer Resilience Assistant</p>
-    </header>
+    <nav class="navbar">
+        <div class="brand">
+            <span class="brand-icon">🌱</span>
+            <div>
+                <h2>FarmShield <span>AI</span></h2>
+                <small>Smart Agriculture Intelligence</small>
+            </div>
+        </div>
 
-    <section class="dashboard">
-        <h2>Crop Climate Risk Analyzer</h2>
-        <p>Enter your crop and weather conditions.</p>
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            Climate Risk Assistant
+        </div>
+    </nav>
 
-        <form id="riskForm">
-            <label>Select Crop</label>
-            <select id="crop" required>
-                <option value="">Choose your crop</option>
-                <option>Rice</option>
-                <option>Tomato</option>
-                <option>Wheat</option>
-                <option>Maize</option>
-                <option>Cotton</option>
-                <option>Sugarcane</option>
-            </select>
+    <main class="container">
 
-            <label>Temperature (°C)</label>
-            <input type="number" id="temperature" placeholder="Example: 35" required>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">🌍 CLIMATE RESILIENCE PLATFORM</span>
 
-            <label>Rainfall (mm)</label>
-            <input type="number" id="rainfall" placeholder="Example: 100" required>
+                <h1>Protect Your Crops.<br>
+                    <span>Prepare for Tomorrow.</span>
+                </h1>
 
-            <button type="submit">🔍 Analyze Climate Risk</button>
-        </form>
+                <p>
+                    Understand climate risks, analyze crop conditions
+                    and make smarter farming decisions with FarmShield AI.
+                </p>
 
-        <div id="result"></div>
-    </section>
+                <a href="#analyzer" class="hero-button">
+                    Analyze Your Crop →
+                </a>
+            </div>
 
-    <footer>
-        <p>FarmShield AI 🌍 | Protecting crops through smarter decisions</p>
-        <small>Prototype estimates only — not a live weather forecast.</small>
-    </footer>
+            <div class="hero-visual">
+                <div class="hero-circle">
+                    🌾
+                </div>
+                <div class="floating-card">
+                    <span>🌱</span>
+                    <div>
+                        <strong>Smart Farming</strong>
+                        <small>Building resilience</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD OVERVIEW -->
+        <section class="section-heading">
+            <div>
+                <span class="eyebrow">YOUR FARM DASHBOARD</span>
+                <h2>Climate Overview</h2>
+                <p>Start by checking your crop's climate conditions.</p>
+            </div>
+        </section>
+
+        <section class="overview-grid">
+
+            <div class="overview-card">
+                <div class="overview-icon">🌡️</div>
+                <div>
+                    <small>Temperature</small>
+                    <h3>Manual Input</h3>
+                    <p>Enter current temperature</p>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-icon">🌧️</div>
+                <div>
+                    <small>Rainfall</small>
+                    <h3>Manual Input</h3>
+                    <p>Enter rainfall in millimetres</p>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div class="overview-icon">🛡️</div>
+                <div>
+                    <small>Risk Monitoring</small>
+                    <h3>Three Risk Levels</h3>
+                    <p>Low · Medium · High</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- MAIN ANALYZER -->
+        <section class="analyzer-section" id="analyzer">
+
+            <div class="analyzer-intro">
+                <span class="eyebrow">INTELLIGENT CROP MONITORING</span>
+                <h2>🌾 Crop Climate Risk Analyzer</h2>
+                <p>
+                    Enter your crop and weather conditions.
+                    FarmShield will evaluate potential climate risks.
+                </p>
+            </div>
+
+            <div class="analyzer-card">
+
+<div class="weather-panel">
+
+    <div class="weather-heading">
+        <span class="eyebrow">LIVE WEATHER SERVICES</span>
+        <h3>🌦️ Get Your Farm's Weather</h3>
+        <p>Search your location or detect it automatically.</p>
+    </div>
+
+    <div class="location-controls">
+        <input
+            type="text"
+            id="locationSearch"
+            placeholder="Enter city or village name..."
+        >
+
+        <button type="button" id="searchLocationBtn">
+            🔍 Search
+        </button>
+
+        <button type="button" id="gpsButton" class="gps-button">
+            📍 Use My GPS
+        </button>
+    </div>
+
+    <div id="locationResults"></div>
+
+    <div id="weatherResult"></div>
+
 </div>
 
-<script src="/static/script.js"></script>
+
+                <div class="card-heading">
+                    <div>
+                        <h3>Enter Farm Conditions</h3>
+                        <p>Provide the following information to begin.</p>
+                    </div>
+                    <span class="form-icon">📋</span>
+                </div>
+
+                <form id="riskForm">
+
+                    <div class="form-group">
+                        <label for="crop">Select Your Crop</label>
+
+                        <select id="crop" required>
+                            <option value="">Choose a crop</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Tomato">Tomato</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Cotton">Cotton</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="temperature">
+                                Temperature (°C)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="temperature"
+                                placeholder="Example: 35"
+                                min="-50"
+                                max="60"
+                                step="any"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rainfall">
+                                Rainfall (mm)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="rainfall"
+                                placeholder="Example: 120"
+                                min="0"
+                                max="1000"
+                                step="any"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <button type="submit" id="analyzeButton">
+                        🔍 Analyze Climate Risk
+                    </button>
+
+                </form>
+
+                <!-- EXISTING JAVASCRIPT RESULT TARGET -->
+                <div id="result"></div>
+
+            </div>
+        </section>
+
+        <!-- RISK EXPLANATION -->
+        <section class="risk-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">UNDERSTAND YOUR RESULTS</span>
+                    <h2>Climate Risk Levels</h2>
+                    <p>Know what each risk category means.</p>
+                </div>
+            </div>
+
+            <div class="risk-grid">
+
+                <div class="risk-card low">
+                    <span class="risk-symbol">🟢</span>
+                    <h3>LOW RISK</h3>
+                    <p>
+                        No major climate risk detected from the
+                        entered temperature and rainfall.
+                    </p>
+                </div>
+
+                <div class="risk-card medium">
+                    <span class="risk-symbol">🟡</span>
+                    <h3>MEDIUM RISK</h3>
+                    <p>
+                        Weather conditions may affect crop growth.
+                        Monitor your crops regularly.
+                    </p>
+                </div>
+
+                <div class="risk-card high">
+                    <span class="risk-symbol">🔴</span>
+                    <h3>HIGH RISK</h3>
+                    <p>
+                        Severe conditions may threaten crops.
+                        Consider protective measures.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FUTURE FEATURES -->
+        <section class="future-section">
+            <div>
+                <span class="eyebrow">COMING NEXT</span>
+                <h2>More Intelligence for Farmers</h2>
+                <p>
+                    We're building additional tools to support
+                    climate-resilient farming.
+                </p>
+            </div>
+
+            <div class="future-grid">
+                <div>🌦️ <strong>Live Weather</strong></div>
+                <div>🤖 <strong>AI Farmer Assistant</strong></div>
+                <div>📊 <strong>Climate Analytics</strong></div>
+                <div>🌐 <strong>Regional Languages</strong></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>🌱 FarmShield AI</h3>
+        <p>Prepare Today. Protect Tomorrow.</p>
+
+        <small>
+            Prototype climate-risk assessment based on manually
+            entered conditions. Not an official weather forecast
+            or a substitute for expert agricultural advice.
+        </small>
+
+        <p class="copyright">
+            © 2026 FarmShield AI | Climate-Resilient Agriculture
+        </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
